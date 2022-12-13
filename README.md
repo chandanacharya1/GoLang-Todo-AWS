@@ -20,26 +20,40 @@ using AWS Services and accessible via a public URL.
     * `GET`: `/todo/{id}`
     * Response: The requested To-Do object with status `200` or status `400` if the object with provided `id` not found.
         * CURL command example:
-        *  `curl -X GET HOSTED-URL?id=54f56cdf-d24e-49de-9342-e0e9db1e3102`
+        *  `curl -X GET \
+           HOSTED-URL?id=54f56cdf-d24e-49de-9342-e0e9db1e3102`
       
 * Create new To-Do object
     * `PUT`:`/todo`
     * Response: On successful creation, status `200` with success message or status `400` with error message when operation is not successful.
         * CURL command example:
-        * `curl --header "Content-Type: application/json"
-           --request PUT --data '{"id":"54f56cdf-d24e-49de-9342-e0e9db1e3102", "titile":"API", "description":"Write todo specification"}' HOSTED-URL`
+        * `curl -X PUT \
+          HOSTED-URL \
+          -H 'content-type: application/json' \
+          -d '{
+          "id": "54f56cdf-d24e-49de-9342-e0e9db1e3102",
+          "title": "API",
+          "description": "Write todo specification"
+          }'`
 
 * Update existing To-Do object
     * `PUT`:`/todo/{id}`
     * Response: On successful update, status `200` with success message or status `400` with error message when operation is not successful.
         * CURL command example:
-        *  `curl --header "Content-Type: application/json"
-           --request PUT --data '{"id":"54f56cdf-d24e-49de-9342-e0e9db1e3102", "titile":"API", "description":"Write todo specification and add details"}' HOSTED-URL?id=54f56cdf-d24e-49de-9342-e0e9db1e3102`
+        *  `curl -X PUT \
+           'HOSTED_URL?id=54f56cdf-d24e-49de-9342-e0e9db1e3102' \
+           -H 'content-type: application/json' \
+           -d '{
+           "id": "54f56cdf-d24e-49de-9342-e0e9db1e3102",
+           "title": "API",
+           "description": "Write todo specification and add details"
+           }'`
 
 * Delete existing To-Do object
     * `DELETE`: `/todo/{id}`
     * Response: On successful delete, status `200` with success message or status `400` with error message when operation is not successful.
         * CURL command example:
-        *  `curl -X DELETE HOSTED-URL?id=54f56cdf-d24e-49de-9342-e0e9db1e3102`
+        *  `curl -X DELETE \
+           'HOSTED-URL?id=54f56cdf-d24e-49de-9342-e0e9db1e3102'`
 
 _HOSTED-URL in the above curl command examples is the AWS URL where the application is hosted, they need to be replaced with the actual URL for the curl command to work_
