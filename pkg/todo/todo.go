@@ -33,10 +33,6 @@ type Success struct {
 	Message string `json:"message"`
 }
 
-type Error struct {
-	Error string `json:"error"`
-}
-
 func FetchTodo(id, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (*Todo, error) {
 
 	input := &dynamodb.GetItemInput{

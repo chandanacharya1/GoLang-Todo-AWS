@@ -27,7 +27,7 @@ func main() {
 	lambda.Start(handler)
 }
 
-const tableName = "sda-aws-todo"
+const tableName = "aws-todo-table"
 
 func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	switch req.HTTPMethod {
